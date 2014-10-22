@@ -1,0 +1,29 @@
+<%- model_class = Stock -%>
+
+    <div class="page-header">
+      <h2>Movimientos de Stock</h2>
+    </div>
+
+        <table class="table table-condensed">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Producto</th>
+            <th>Cantidad </th>
+            <th>Fecha</th>
+            <th> </th>
+            <!-- <th>Acciones</th> en los movimientos no se pueden realizar acciones-->
+          </tr>
+          </thead>
+          <tbody>
+
+            <% @stocks.each do |stock| %>
+                <tr>
+                  <td><%= link_to stock.id, stock_path(stock) %></td>
+                  <td><%= stock.producto.nombre %></td>
+                  <td><%= stock.cantidad %></td>
+                  <td><%= stock.created_at.strftime("%d/%m/%Y - %H:%M hs") %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>

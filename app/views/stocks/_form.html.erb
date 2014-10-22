@@ -1,0 +1,14 @@
+<%= simple_form_for @stock, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :cantidad %>
+    <%= f.input :producto_id, collection: Producto.order(nombre: :asc), value_method: :id, label_method: :nombre, include_blank: false,input_html: { id: "producto-select" } %>
+
+    <div class="form-actions"><br>
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                stocks_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+
+
+<!-- El script del select está en superhero.html.erb -->

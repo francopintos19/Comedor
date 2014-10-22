@@ -1,0 +1,25 @@
+<%= simple_form_for @orden, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :fecha_uso %>
+  <%= f.input :user_id %>
+
+
+    <fieldset>
+      <legend>Productos de la Orden</legend>
+      <%= f.simple_fields_for :ordenproductos do |ordenproductos| %>
+          <%= render 'ordenproducto_fields', f:  ordenproductos %>
+      <% end %>
+
+      <p><%= link_to_add_association 'Agregar Producto', f, :ordenproductos %></p> <p></p>
+
+    </fieldset>
+
+
+    <div class="modal-footer">
+      <%= f.submit("Crear Orden", :class => 'btn btn-primary' , :title => "Guarda los datos y envia el pedido." )%>
+
+      <%= link_to("Cancelar", root_path, :class => "btn btn-inverse", :title => "Cancela el pedido y dirige al inicio" )%>
+    </div>
+
+    <!-- Cierro el comienzo el form-->
+<% end %>
+

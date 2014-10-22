@@ -1,0 +1,8 @@
+/* Superhero
+ * Bootswatch
+ *= require_self
+ *= require superhero/loader
+ *= require superhero/bootswatch
+  *= require select2
+ *= require select2-bootstrap
+*/
